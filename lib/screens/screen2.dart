@@ -1,3 +1,5 @@
+import 'package:app1/screens/screen1.dart';
+import 'package:app1/screens/screen3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -102,12 +104,19 @@ class MyAccount extends StatelessWidget {
               height: 50,
               width: 160,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) =>Appointments() ,));
+                },
                 child: Text(
                   'back',
                   style: TextStyle(fontSize: 32),
                 ),
-              ))
+              ),
+              ),
+              ElevatedButton(onPressed: () {
+                Navigator.push(context,MaterialPageRoute(builder: ((context) => PatrentAccount())));
+              }, child: Text('next' ,style: TextStyle(fontSize: 32)))
+              
         ],
       ),
     );

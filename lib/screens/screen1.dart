@@ -1,5 +1,6 @@
 import 'package:app1/components/timealarm.dart';
 import 'package:app1/models/Alarm.dart';
+import 'package:app1/screens/screen2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -167,7 +168,11 @@ class Appointments extends StatelessWidget {
                 thickness: 1,
                 color: Colors.black,
               ),
+               ElevatedButton(child: Text('next',style: TextStyle(fontSize: 26),) ,onPressed: () {
+              Navigator.push(context,MaterialPageRoute(builder: ((context) =>MyAccount() )));
+            },),
             ],
+           
           ),
         ));
   }

@@ -1,5 +1,6 @@
 import 'dart:ffi';
 
+import 'package:app1/screens/screen2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -151,7 +152,9 @@ class PatrentAccount extends StatelessWidget {
                 width: 150,
                 height: 60,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => MyAccount(),));
+                  },
                   child: Text(
                     'BACK',
                     style: TextStyle(fontSize: 22),
