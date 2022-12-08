@@ -1,15 +1,23 @@
+import 'package:app1/blocs/bloc_doctor/cubit/doctor_cubit.dart';
 import 'package:app1/screens/screen1.dart';
 import 'package:app1/screens/screen3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyAccount extends StatelessWidget {
   const MyAccount({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocConsumer<DoctorCubit, DoctorState>(
+      listener: (context, state) {
+        
+      },
+      builder: (context, state) {
+        var cubit = DoctorCubit.get(context);
+        return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.indigo,
         title: Row(
@@ -42,11 +50,11 @@ class MyAccount extends StatelessWidget {
             ),
           ),
           Text(
-            'Maria loana Leonte',
+            '${cubit.jlogin!.data!.name}',
             style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
           ),
           Text(
-            'HCP Name',
+            '${cubit.jlogin!.data!.title}',
             style: TextStyle(fontSize: 22),
           ),
           SizedBox(
@@ -76,7 +84,7 @@ class MyAccount extends StatelessWidget {
                         size: 48,
                       ),
                       Text(
-                        'mariajeonfe@gmail.com',
+                        '${cubit.jlogin!.data!.email}',
                         style: TextStyle(fontSize: 20),
                       )
                     ],
@@ -88,7 +96,7 @@ class MyAccount extends StatelessWidget {
                         size: 48,
                       ),
                       Text(
-                        '49 Nerva traian Streat , Bucharest',
+                        '${cubit.jlogin!.data!.address}',
                         style: TextStyle(fontSize: 20),
                       )
                     ],
@@ -97,28 +105,12 @@ class MyAccount extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
-            height: 30,
-          ),
-          SizedBox(
-              height: 50,
-              width: 160,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) =>Appointments() ,));
-                },
-                child: Text(
-                  'back',
-                  style: TextStyle(fontSize: 32),
-                ),
-              ),
-              ),
-              ElevatedButton(onPressed: () {
-                Navigator.push(context,MaterialPageRoute(builder: ((context) => PatrentAccount())));
-              }, child: Text('next' ,style: TextStyle(fontSize: 32)))
-              
+         
         ],
       ),
+    );
+ 
+      },
     );
   }
 }

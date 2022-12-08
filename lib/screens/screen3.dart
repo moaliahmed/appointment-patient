@@ -1,16 +1,23 @@
 import 'dart:ffi';
 
+import 'package:app1/blocs/bloc_doctor/cubit/doctor_cubit.dart';
 import 'package:app1/screens/screen2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PatrentAccount extends StatelessWidget {
   const PatrentAccount({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocConsumer<DoctorCubit, DoctorState>(
+      listener: (context, state) {
+        
+      },
+      builder: (context, state) {
+        return Scaffold(
       appBar: AppBar(
           title: Row(
             children: [
@@ -176,6 +183,9 @@ class PatrentAccount extends StatelessWidget {
           )
         ],
       ),
+    );
+  
+      },
     );
   }
 }
